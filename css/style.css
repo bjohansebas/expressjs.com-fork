@@ -5,6 +5,14 @@
 
 /* general */
 
+:root {
+  --backgroud: #fff;
+  --foreground: #555;
+  --accent: #353535;
+  --card-bg: #eeeeee;
+  --border: #c2c2c2;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -14,10 +22,10 @@
 
 body {
   font: 400 14px/1.6 "Open Sans", sans-serif;
-  background: url(/images/bg.jpg);
+  background: var(--backgroud);
   margin: 0;
   padding: 0;
-  color: #555;
+  color: var(--accent);
 }
 
 h1 {
@@ -31,8 +39,11 @@ h1 {
 
 h1, h2, h3 {
   margin: 5px 0;
-  color: #353535;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, code, em, strong,th,pre {
+  color: var(--accent);
 }
 
 .content h1 {
@@ -41,7 +52,6 @@ h1, h2, h3 {
 
 p em {
   font-weight: bold;
-  color: #353535;
 }
 
 p {
@@ -49,15 +59,11 @@ p {
   line-height: 1.35em;
 }
 
-strong, th {
-  color: #353535;
-}
-
 #overlay {
   position: fixed;
   left: 0;
   top: 0;
-  background: #fff;
+  background: var(--backgroud);
   opacity: 0.8;
   width: 100%;
   height: 100%;
@@ -130,8 +136,8 @@ strong, th {
 #install-command {
   font-family: Consolas, Monaco, "Andale Mono", monospace;
   padding: 5px 10px;
-  background: #fff;
-  border: 1px solid #eee;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
   border-radius: 3px;
   max-width: 375px;
 }
@@ -144,10 +150,6 @@ strong, th {
 
 span.block-section {
   display: block;
-}
-
-li code {
-  color: #333;
 }
 
 #intro h3 {
@@ -164,7 +166,6 @@ li code {
   padding-bottom: 5px;
   font-weight: bold;
   font-size: 24px;
-  color: #888;
 }
 
 #api-doc h2 {
@@ -188,7 +189,6 @@ li code {
 #api-doc h5 {
   font-size: 14px;
   font-weight: bold;
-  color: #666;
 }
 
 /* links */
@@ -234,7 +234,7 @@ a {
   display: block;
   font: 25px "Helvetica Neue", "Open Sans", sans-serif;
   font-weight: 100;
-  color: #444;
+  color: var(--accent);
 }
 
 #description .express {
@@ -245,7 +245,7 @@ a {
 }
 
 #description .express a {
-  color: #353535;
+  color: var(--accent);
 }
 
 #express-version {
@@ -299,16 +299,16 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background: #eee;
+  background: var(--card-bg);
   width: 100%;
   height: 57px;
   z-index: 100;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border);
 }
 
 .scroll header {
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 0 4px #eee;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 0 4px var(--card-bg);
 }
 
 /* companies using express */
@@ -321,24 +321,23 @@ img.memberlogo {
 
 /* code */
 
-p code, td code {
-  color: #333;
-}
-
 pre {
-  color: #555;
+  color: var(--foreground);
   font-size: 14px;
   line-height: 1.4;
   padding: 16px;
   border-radius: 3px;
   overflow: auto;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
+  background-color: var(--card-bg) !important;
 }
 
 pre code {
+  color: var(--foreground) !important;
   overflow: scroll;
   word-break: break-all;
 }
+
 
 /* top button */
 
@@ -468,7 +467,7 @@ html[xmlns] .clearfix {
 
 .doctable, section table {
   margin: 1em 1em 1em 0;
-  border: 1px solid #c6c6c6;
+  border: 1px solid var(--border);
   border-collapse: collapse;
   empty-cells: show;
   width: 100%;
@@ -524,7 +523,7 @@ html[xmlns] .clearfix {
 }
 
 .doc-box pre[class*="language-"] {
-  background: none repeat scroll 0 0 #fff;
+  background: none repeat scroll 0 0 var(--backgroud);
 }
 
 /* English pages use backticks for code blocks */
@@ -541,9 +540,8 @@ html[xmlns] .clearfix {
 
 .page pre.plain-text, .page code.plain-text {
   padding-top: 0 !important;
-  color: #000;
+  color: var(--foreground);
 }
-
 
 .doc-notice {
   background: #faf6e8;
@@ -582,10 +580,10 @@ html[xmlns] .clearfix {
 .button {
   display: block;
   padding: 3px 5px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border);
   border-radius: 3px;
   cursor: pointer;
-  color: #555;
+  color: var(--foreground);
 }
 
 #mobile-menu {
@@ -683,14 +681,14 @@ footer {
 }
 
 #navbar a {
-  color: #666;
+  color: var(--foreground);
   padding-left: 20px;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
 #navbar a.active {
   font-weight: bold;
-  color: #353535;
+  color: var(--accent);
 }
 
 
@@ -719,8 +717,8 @@ footer {
 }
 
 .menu ul.dropit-submenu {
-  background-color: #fcfcfa;
-  border: 1px solid #b2b2b2;
+  background: var(--backgroud);
+  border: 1px solid var(--border);
   margin: 0 0 0 1px;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
 }
@@ -807,7 +805,7 @@ footer {
 }
 
 #blog-side-menu-container > h3 > a  {
-  color: #353535
+  color: var(--accent)
 }
 
 
@@ -825,10 +823,6 @@ footer {
 #menu ul a.active,
 #tags-side-menu ul a.active {
   color: #259dff;
-}
-
-h2 a {
-  color: #353535 !important;
 }
 
 /* search */
@@ -1013,7 +1007,7 @@ h2 a {
     left: 0;
     padding: 0;
     top: 2px;
-    background: #fff;
+    background: var(--backgroud);
     width: 100%;
     display: none;
   }
@@ -1028,7 +1022,7 @@ h2 a {
 
   #navmenu > li {
     float: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--border);
     margin: 0;
     min-height: 47px;
     position: relative;
@@ -1079,7 +1073,7 @@ h2 a {
   }
 
   .dropit-submenu li {
-    border-bottom: 1px solid #cdcdcd;
+    border-bottom: 1px solid var(--border);
   }
 
   .dropit-submenu a {
@@ -1266,22 +1260,23 @@ h2 a {
   flex-direction: column;
   row-gap: 10px;
 }
+
 .blog-post {
   width: 100%;
-  background-color: #eee;
+  background-color: var(--card-bg);
   display: flex;
   padding: 10px;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 2px 3px #E0E0E0;
   border-radius: 5px;
-  border: 1px solid #808080;  
+  border: 1px solid var(--border);  
   transition: 0.1s;
 }
 .blog-post:hover {
   background-color: #D3D3D3;
-  border: 1px solid #303030;
 }
+
 .blog-post img {
   max-width: 100%;
   max-height: 100%;
@@ -1303,13 +1298,16 @@ h2 a {
   font-weight: 500;
   padding-right: .2em;
 }
+
 .blog-title a {
-  color: #000;
+  color: var(--foreground);
 }
+
 .blog-excerpt {
   color: initial;
   font-size: .75rem;
 }
+
 .blog-img {
   max-width: 100%;
   margin: auto;
