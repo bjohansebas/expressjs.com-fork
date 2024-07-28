@@ -4,7 +4,6 @@
 */
 
 $(function(){
-
   var isSmallScreen = checkSmallScreen()
 
   $(window).resize(function () {
@@ -41,7 +40,6 @@ $(function(){
   })
 
   // edit page link
-  var latest = '';
   var branchPath = 'https://github.com/expressjs/expressjs.com';
   var pathName = document.location.pathname;
 
@@ -82,9 +80,6 @@ $(function(){
 
   // menu bar
 
-  var prev;
-  var n = 0;
-
   var headings = $('h2, h3').map(function(i, el){
     return {
       top: $(el).offset().top - 200,
@@ -113,45 +108,26 @@ $(function(){
   });
 
   $(document).scroll(function() {
-
     var h = closest();
     if (!h) return;
 
+    currentApiPrefix = h.id.split('.')[0];
+    parentMenuSelector = '#'+ currentApiPrefix + '-menu';
 
-    if (window.location.pathname == '/3x/api.html') {
+    $(parentMenuSelector).addClass('active');
 
-      if (prev) {
-      prev.removeClass('active');
-      prev.parent().parent().removeClass('active');
-      }
-      var a = $('a[href="#' + h.id + '"]');
-      a.addClass('active');
-      a.parent().parent().addClass('active');
-      prev = a;
-
+    if (lastApiPrefix && (lastApiPrefix != currentApiPrefix)) {
+      $('#'+ lastApiPrefix + '-menu').removeClass('active');
     }
 
-    else {
+    $('#menu li a').removeClass('active');
 
-      currentApiPrefix = h.id.split('.')[0];
-      parentMenuSelector = '#'+ currentApiPrefix + '-menu';
+    var a = $('a[href="#' + h.id + '"]');
+    a.addClass('active');
 
-      $(parentMenuSelector).addClass('active');
-
-      if (lastApiPrefix && (lastApiPrefix != currentApiPrefix)) {
-        $('#'+ lastApiPrefix + '-menu').removeClass('active');
-      }
-
-      $('#menu li a').removeClass('active');
-
-      var a = $('a[href="#' + h.id + '"]');
-      a.addClass('active');
-
-      lastApiPrefix = currentApiPrefix.split('.')[0];
-
-    }
-
+    lastApiPrefix = currentApiPrefix.split('.')[0];
   })
+
   $('#tags-side-menu li').on('click', function() {
       // Remove prev 'active's 
       $(this).next().siblings().removeClass('active');
