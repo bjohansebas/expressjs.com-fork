@@ -1,7 +1,7 @@
 name: Update External Docs
 on:
     schedule:
-    - cron:  '0 8 * * 1'
+    - cron:  '36 15 * * 1'
 
 
 permissions:
