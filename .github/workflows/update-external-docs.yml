@@ -2,6 +2,9 @@ name: Update External Docs
 on:
     schedule:
     - cron:  '36 15 * * 1'
+    push:
+        branches:
+            - gh-pages
 
 
 permissions:
