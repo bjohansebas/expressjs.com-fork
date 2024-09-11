@@ -28,7 +28,6 @@ jobs:
                 body: >
                   This auto-generated PR updates external documentation to the expressjs.com repository.
                 labels: doc
-                team_reviewers: docs-wg
                 branch: external-docs-${{ github.sha }}
 
 
